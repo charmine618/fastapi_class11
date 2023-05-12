@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.get('/')
 async def root():
-    return {'this is a API service for MN healthcare utilization code details'}
+    return {'this is a API service for MN diagnoses code details'}
 
 @app.get('/preview')
 async def preview():
@@ -16,19 +16,19 @@ async def preview():
     result = top10rows.to_json(orient="records")
     return {result}
 
-@app.get("/ccd/{value}")
-async def ccode(value):
+@app.get("/pdc/{value}")
+async def pdcode(value):
     print('value: ', value)
-    filtered = df[df['age_group_code'] == value]
+    filtered = df[df['principal_diagnosis_code'] == value]
     if len(filtered) <= 0:
         return {'There is nothing here'}
     else: 
         return {filtered.to_json(orient="records")}
 
-@app.get('/ccd/{value}/principal_diagnosis_code/{value2}')
-async def ccode2(value, value2):
-    filtered = df[df['age_group_code'] == value]
-    filtered2 = filtered[filtered['principal_diagnosis_code'] == value2]
+@app.get('/pdc/{value}/sex/{value2}')
+async def pdcode2(value, value2):
+    filtered = df[df['principal_diagnosis_code'] == value]
+    filtered2 = filtered[filtered['sex'] == value2]
     if len(filtered2) <= 0:
         return {'There is nothing here'}
     else: 
