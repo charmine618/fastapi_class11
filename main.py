@@ -19,16 +19,16 @@ async def preview():
 @app.get("/ccd/{value}")
 async def ccode(value):
     print('value: ', value)
-    filtered = df[df['county_code'] == value]
+    filtered = df[df['age_group_code'] == value]
     if len(filtered) <= 0:
         return {'There is nothing here'}
     else: 
         return {filtered.to_json(orient="records")}
 
-@app.get('/ccd/{value}/sex/{value2}')
+@app.get('/ccd/{value}/principal_diagnosis_code/{value2}')
 async def ccode2(value, value2):
-    filtered = df[df['county_code'] == value]
-    filtered2 = filtered[filtered['sex'] == value2]
+    filtered = df[df['age_group_code'] == value]
+    filtered2 = filtered[filtered['principal_diagnosis_code'] == value2]
     if len(filtered2) <= 0:
         return {'There is nothing here'}
     else: 
