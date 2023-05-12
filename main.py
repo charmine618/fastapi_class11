@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 import pandas as pd
 
-df = pd.read_csv('./data/utilization2019.csv')
+df = pd.read_csv('./data/diagnoses2019.csv')
 
 app = FastAPI()
 
