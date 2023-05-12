@@ -1,2 +1,4 @@
 # fastapi_class11
-This is a quick example of a fast api service deployed using Vercel.
+this is a quick eample of a fastAPI service deployed using VERCEL 
+
+## instructions
