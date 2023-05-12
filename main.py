@@ -1,6 +1,5 @@
 # main.py
 from fastapi import FastAPI
-import pandas as pd
 
 app = FastAPI()
 
